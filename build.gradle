@@ -1,0 +1,35 @@
+buildscript {
+    ext {
+        scalaMainVersion = '2.12'
+        scalaVersion = "${scalaMainVersion}.7"
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.6.RELEASE")
+    }
+}
+
+apply plugin: 'scala'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+bootJar {
+    baseName = 'spring-boot-scala-demo'
+    version =  '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.11
+targetCompatibility = 1.11
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web:2.0.6.RELEASE")
+    compile("org.scala-lang:scala-library:$scalaVersion")
+    testCompile("org.springframework.boot:spring-boot-starter-test:2.0.6.RELEASE")
+    testCompile("org.scalatest:scalatest_$scalaMainVersion:3.0.0")
+}
