@@ -15,3 +15,15 @@ To run the test suite:
 ```
 ./gradlew test
 ```
+
+To build the Docker container:
+
+```
+docker build -t spring-boot-scala-demo .
+```
+
+To run the Docker container:
+
+```
+docker run -it --rm -p 8080:8080 spring-boot-scala-demo
+```
